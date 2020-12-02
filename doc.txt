@@ -1,0 +1,7 @@
+Shopping_project timeline:
+
+Date: 2.12.2020
+1. think about what kind of project it should be e.g MEAN Stack app
+2. create some sketches of your thoughts on this project.
+3. create project file e.g Shopping_project
+4. install all the necessary dependencies/files etc.
