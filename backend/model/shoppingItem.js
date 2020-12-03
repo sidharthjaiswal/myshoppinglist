@@ -1,6 +1,11 @@
+//Requiring Mongoose
 const mongoose = require('mongoose');
 
-const ShoppingItemSchema = mongoose.Schema({
+//Create variables to store our schemas 
+const Schema = mongoose.Schema;
+
+//Create Shoppingitem schema 
+const ShoppingItemSchema = new Schema({
     itemName: {
         type: String,
         required: true
@@ -9,10 +14,6 @@ const ShoppingItemSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    itemBought: {
-        type: Boolean,
-        required: true
-    }
 });
 
-const Item = module.exports = mongoose.model('Item', ShoppingItemSchema);
+const Item = module.exports = mongoose.Schema(ShoppingItemSchema);

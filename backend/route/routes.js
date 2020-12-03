@@ -2,7 +2,8 @@ const { request } = require('express');
 var express = require('express');
 var router = express.Router();
 
-const Item = require('../model/shoppingItem');
+const Item = require('../model/shoppingList');
+
 
 //retrieving data from DB
 router.get('/items', (req,res, next)=>{
