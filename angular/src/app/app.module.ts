@@ -5,10 +5,12 @@ import {FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { from } from 'rxjs';
+import { ShoppingItemComponent } from './shopping-item/shopping-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShoppingItemComponent
   ],
   imports: [
     BrowserModule,
