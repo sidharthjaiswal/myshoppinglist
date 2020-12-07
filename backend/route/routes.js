@@ -2,12 +2,10 @@ const { request } = require('express');
 var express = require('express');
 var router = express.Router();
 
-const Item = require('../model/shoppingList');
-
-
+const List = require('../model/shoppingList');
 //retrieving data from DB
-router.get('/items', (req,res, next)=>{
-    Item.find(function(err, items){
+router.get('/lists', (req,res, next)=>{
+    List.find(function(err, items){
         if(err)
         {
             res.json(err);
@@ -19,13 +17,12 @@ router.get('/items', (req,res, next)=>{
     });
 });
 //inserting new data
-router.post('/item', (req,res, next)=>{
-    let newShoppingItem = new Item({
+router.post('/list', (req,res, next)=>{
+    let newShoppingList = new List({
         itemName: req.body.itemName,
         itemQuantity: req.body.itemQuantity,
-        itemBought: req.body.itemBought
     });
-    newShoppingItem.save((err, item)=>{
+    newShoppingList.save((err, item)=>{
         if(err)
         {
            console.log( res.json(err));
@@ -39,11 +36,10 @@ router.post('/item', (req,res, next)=>{
 
 //updating new data
 router.put('/item/:id', (req,res, next)=>{
-    Item.findOneAndUpdate({_id: req.params.id}, {
+    List.findOneAndUpdate({_id: req.params.id}, {
         $set:{
             itemName: req.body.itemName,
             itemQuantity: req.body.itemQuantity,
-            itemBought: req.body.itemBought
         }
     },
     function(err, result){
@@ -59,8 +55,8 @@ router.put('/item/:id', (req,res, next)=>{
 });
 
 //deleting new data
-router.delete('/item/:id', (req,res,next)=>{
-    Item.remove({_id: req.params.id},
+router.delete('/list/:id', (req,res,next)=>{
+    List.remove({_id: req.params.id},
         function(err,result)
         {
             if(err)

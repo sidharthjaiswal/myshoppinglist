@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-//importing Schema of ShoppingItem from shoppingitem.js
-const Item = require('./shoppingItem');
 
 const Schema = mongoose.Schema;
 
@@ -9,9 +7,17 @@ const Schema = mongoose.Schema;
 const ShoppingListSchema = new Schema({
     listDate: {
         type: Date,
+        default: Date.now,
         required: true
     },
-    items: Item
+    itemName: {
+        type: String,
+        required: true
+    },
+    itemQuantity: {
+        type: Number,
+        required: true
+    },
 });
 
 const List = module.exports = mongoose.model('List',ShoppingListSchema); 
