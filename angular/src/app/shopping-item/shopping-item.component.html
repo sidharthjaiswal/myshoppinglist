@@ -1,1 +1,41 @@
-<p>shopping-item works!</p>
+<form #frm = "ngForm" (ngSubmit)="addList(frm)">
+    <h2>Add List</h2>
+    <div class="form-group">
+        <label for="">
+            ListName:
+        </label>
+        <input
+        type="text"
+        class="form-control"
+        name="listName"
+        value=""
+        ngModel
+        required>
+    </div>
+    <div class="form-group">
+        <label for="">
+            ItemName:
+        </label>
+        <input
+        type="text"
+        class="form-control"
+        name="itemName"
+        value=""
+        ngModel
+        required>
+    </div>
+    <div class="form-group">
+        <label for="">
+            Quantity:
+        </label>
+        <input
+        type="number"
+        class="form-control"
+        name="itemQuantity"
+        value=""
+        ngModel
+        required>
+    </div>
+    <button type="submit" name="button" class="btn btn-success" [disabled]=frm.invalid>Add List</button>
+</form>
+<br>

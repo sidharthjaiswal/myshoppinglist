@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 
 //creating new Schema for Shoppinglist
 const ShoppingListSchema = new Schema({
+    listName: {
+        type: String,
+        required: true
+    },
     listDate: {
         type: Date,
         default: Date.now,
