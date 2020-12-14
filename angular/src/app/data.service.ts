@@ -18,7 +18,6 @@ export class DataService {
     .pipe(map(res => res.json()));
   };
 
-
   addShoppingList(newList: List)
   {
     let headers = new Headers();
