@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../list';
 import { DataService } from '../data.service';
-import { from } from 'rxjs';
 import { Item } from '../item';
 @Component({
   selector: 'app-shopping-item',
@@ -10,18 +9,19 @@ import { Item } from '../item';
   providers: [DataService]
 })
 export class ShoppingItemComponent implements OnInit {
+
   shoppingList: List[]=[];
+  shoppingItem: Item[]=[];
   selectedList: any;
   toggleForm: boolean | undefined;
   
   constructor(private dataService: DataService) { }
 //list functions
-
   getLists(){
     this.dataService.getShoppingList()
     .subscribe( lists => {
       this.shoppingList = lists;
-      //console.log('data from dataservice: '+ this.shoppingList[0].itemName);
+      console.log('data from dataservice: '+ this.shoppingList[0].itemName);
     })
   };
 
@@ -39,7 +39,7 @@ export class ShoppingItemComponent implements OnInit {
     })
   }
 
-  deleteList(id: string){
+  deleteList(id: any){
     this.dataService.deleteShoppingList(id)
     .subscribe( data => {
       console.log(data);

@@ -1,18 +1,14 @@
-<form #frm = "ngForm" (ngSubmit)="addList(frm)">
-    <h2>Add List</h2>
-    <div class="form-group">
-        <label for="">
-            ListName:
-        </label>
-        <input
-        type="text"
-        class="form-control"
-        name="listName"
-        value=""
-        ngModel
-        required>
-    </div>
-    <div class="form-group">
+    <form #frm = "ngForm" (ngSubmit)="addList(frm)"  >
+            <h1>Add List</h1>
+            <label for="listName">ListName:</label>
+            <input type="text"  name="listName" class="form-control" maxlength="20" value="" ngModel required >
+            <label for="itemName">ItemName:</label>
+            <input type="text"  name="itemName" class="form-control"  maxlength="20" value="" ngModel required >
+            <label for="itemQuantity">Quantity:</label>
+            <input type="number"  name="itemQuantity" class="form-control" min="1" max="999" value="" ngModel required >      
+            <button type="submit" name="button" class="btn btn-success" [disabled]=frm.invalid>Add List</button>
+       </form>
+    <!--<div class="form-group">
         <label for="">
             ItemName:
         </label>
@@ -35,7 +31,31 @@
         value=""
         ngModel
         required>
-    </div>
-    <button type="submit" name="button" class="btn btn-success" [disabled]=frm.invalid>Add List</button>
-</form>
+    </div>-->
+    
 <br>
+<br>
+<h2>Shopping Lists:</h2> 
+
+<table class="table table-primary">
+    <thead>
+      <tr>
+        
+        <th scope="col">ListName</th>
+        <th scope="col">ItemName</th>
+        <th scope="col">itemQuantity</th>
+      </tr>
+    </thead>
+  </table>
+
+        <div *ngFor="let list of shoppingList" class="" >
+            <table class="table " >
+                <tbody>
+                  <tr>
+                    <td>{{list.listName}}</td>
+                    <td>{{list.itemName}}</td>
+                    <td>{{list.itemQuantity}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
