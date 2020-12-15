@@ -1,110 +1,101 @@
 <body class="body bg-info">
-<h1>My ShoppingList</h1>
-<div class="red">
-<div class="blue">
-<h3>Add List</h3>
-<form class ="bg-primary"  #frm = "ngForm" (ngSubmit)="addList(frm)" >
-            
-            <label style="color: white;" for="listName">ListName:</label>
-            <input type="text"  name="listName" class="form-control" maxlength="20" value="" ngModel required >
-            <label style="color: white;" for="itemName">ItemName:</label>
-            <input type="text"  name="itemName" class="form-control"  maxlength="20" value="" ngModel required >
-            <label style="color: white;" for="itemQuantity">Quantity:</label>
-            <input type="number"  name="itemQuantity" class="form-control" min="1" max="999" value="" ngModel required >      
-            <button type="submit" name="button" class="btn btn-success" [disabled]=frm.invalid>Add List</button>
-            <br>
-            <br>
-            <br>
-            <form class ="form bg-primary"#editform = "ngForm" (ngSubmit)="editList(editform)" *ngIf="toggleForm">
-              <h3 style="color: white;">Edit Items of List</h3>
-              <div class="form-group">
-                  <label style="color: white;" for="">
-                      ItemName:
-                  </label>
-                  <input
-                  type="text"
-                  class="form-control"
-                  name="itemName"
-                  value=""
-                  [ngModel]="selectedList.itemName">
-              </div>
-          
-              <div class="form-group">
-                  <label style="color: white;" for="">
-                      ItemQuantity:
-                  </label>
-                  <input
-                  type="number"
-                  class="form-control"
-                  name="itemQuantity"
-                  value=""
-                  [ngModel]="selectedList.itemQuantity">
-                  <button type="submit" name="button" class="btn btn-success" >Save</button>
-              </div>
-              <br><br>
-            </form>
-          <br>
-            <h2 style="color: white;">Shopping Lists:</h2> 
-            <table class="table table-primary" style="color: white;">
-                <thead>
-                  <tr>
-                    
-                    <th scope="col">ListName</th>
-                    <th scope="col">ItemName</th>
-                    <th scope="col">itemQuantity</th>
-                  </tr>
-                </thead>
-              </table>
-            
-                    <div *ngFor="let list of shoppingList"  >
-                        <table class="table "style="color: white;" >
-                            <tbody>
-                              <tr>
-                                <td>{{list.listName}}</td>
-                                <td>{{list.itemName}}</td>
-                                <td>{{list.itemQuantity}}</td>
-                                <div class="col-md-3">
-                                  <button type="button" class="btn btn-success" (click)="showEditForm(list)" [disabled]="toggleForm">Edit</button>
-                                  <br><br>
-                              </div>
-                                <div class="col-md-3">
-                                  <button type="button" class="btn btn-danger" (click)="deleteList(list._id)">Delete</button>
-                                  <br><br>
-                              </div>
-                              </tr>
-                            </tbody>
-                          </table>
-                    </div>
-              
-</form>
-      
-</div>
-<div class="blue">
-  <button class="btn btn-primary" (click)="getLists()">Show Shopping list</button>
-  <br>
-  <br>
-  <br>
-      <table class =" table2 " >
+  <h1>My ShoppingList</h1>
+  <div class="main">
+    <div class="sub">
+      <h3>Add List</h3>
+      <form class="bg-primary" #frm="ngForm" (ngSubmit)="addList(frm)">
+
+        <label style="color: white;" for="listName">ListName:</label>
+        <input type="text" name="listName" class="form-control" maxlength="20" value="" ngModel required>
+        <label style="color: white;" for="itemName">ItemName:</label>
+        <input type="text" name="itemName" class="form-control" maxlength="20" value="" ngModel required>
+        <label style="color: white;" for="itemQuantity">Quantity:</label>
+        <input type="number" name="itemQuantity" class="form-control" min="1" max="999" value="" ngModel required>
+        <button type="submit" name="button" class="btn btn-success" [disabled]=frm.invalid>Add List</button>
+        <br>
+        <br>
+        <br>
+        <form class="form bg-primary" #editform="ngForm" (ngSubmit)="editList(editform)" *ngIf="toggleForm">
+          <h3 style="color: white;">Edit Items of List</h3>
+          <div class="form-group">
+            <label style="color: white;" for="">
+              ItemName:
+            </label>
+            <input type="text" class="form-control" name="itemName" value="" [ngModel]="selectedList.itemName">
+          </div>
+
+          <div class="form-group">
+            <label style="color: white;" for="">
+              ItemQuantity:
+            </label>
+            <input type="number" class="form-control" name="itemQuantity" value=""
+              [ngModel]="selectedList.itemQuantity">
+            <button type="submit" name="button" class="btn btn-success">Save</button>
+          </div>
+          <br><br>
+        </form>
+        <br>
+        <h2 style="color: white;">Shopping Lists:</h2>
+        <table class="table table-primary" style="color: white;">
+          <thead>
+            <tr>
+
+              <th scope="col">ListName</th>
+              <th scope="col">ItemName</th>
+              <th scope="col">itemQuantity</th>
+            </tr>
+          </thead>
+        </table>
+
+        <div *ngFor="let list of shoppingList">
+          <table class="table " style="color: white;">
+            <tbody>
+              <tr>
+                <td>{{list.listName}}</td>
+                <td>{{list.itemName}}</td>
+                <td>{{list.itemQuantity}}</td>
+                <div class="container">
+                  <button type="button" class="btn btn-success" (click)="showEditForm(list)"
+                    [disabled]="toggleForm">Edit</button>
+                  <button type="button" class="btn btn-danger" (click)="deleteList(list._id)">Delete</button>
+                  <br><br>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="sub">
+      <button class="btn btn-primary" (click)="getLists()">Show Shopping list</button>
+      <br>
+      <br>
+      <br>
+      <table class=" table2 ">
         <thead>
-          <tr>              
+          <tr>
             <th scope="col">ListName</th>
             <th scope="col">ItemName</th>
             <th scope="col">itemQuantity</th>
           </tr>
         </thead>
       </table>
-        <div *ngFor="let list of shoppingList" class="" >
-            <table class="table2"  >
-                  <tbody>
-                    <tr>
-                      <td>{{list.listName}}</td>
-                      <td>{{list.itemName}}</td>
-                      <td>{{list.itemQuantity}}</td>
-                     </tr>
-                    </tbody>
-              </table>
-          </div>
-</div>
+      <div *ngFor="let list of shoppingList" class="">
+        <table class="table2">
+          <tbody>
+            <tr>
+              <td>{{list.listName}}</td>
+              <td>{{list.itemName}}</td>
+              <td>{{list.itemQuantity}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-</div>
+
+
+  </div>
 </body>

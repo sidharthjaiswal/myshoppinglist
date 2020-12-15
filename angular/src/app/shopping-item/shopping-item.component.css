@@ -51,7 +51,7 @@ table{
     padding: 0px;
    
   }
-  .red {
+  .main {
     width:4000px;
     height:1000px;
    
@@ -69,10 +69,12 @@ table{
  
 }
 
-.blue {
+.sub {
     height:200px;
     width:24%;
     display:inline-block;
     float: left;
     
 }
+
+

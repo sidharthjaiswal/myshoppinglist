@@ -24,8 +24,9 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "assets",
+              "myshopppinglist/images/favicon.png"
+              
             ],
             "styles": [
               "src/styles.css"
