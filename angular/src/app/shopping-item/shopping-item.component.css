@@ -11,7 +11,7 @@ h1{
     -webkit-overflow-scrolling: touch;
 }
 form {
-    width: 700px; margin: auto; 
+    width: 500px; margin: auto; 
     background-color: aqua;
     float: left;
 }
@@ -70,8 +70,8 @@ table{
 }
 
 .sub {
-    height:200px;
-    width:24%;
+    height:100px;
+    width:15%;
     display:inline-block;
     float: left;
     

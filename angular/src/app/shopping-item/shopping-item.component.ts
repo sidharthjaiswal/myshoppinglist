@@ -83,6 +83,14 @@ export class ShoppingItemComponent implements OnInit {
     });
   }
 
+  searchList(listName: String){
+    this.dataService.getShoppingList()
+    .subscribe( lists => {
+      this.shoppingList = lists;
+      console.log('data from dataservice: '+ this.shoppingList[0].itemName);
+    })
+  };
+
   // items functions
   addItem(form: {value: { itemName: String; itemQuantity: Number;}}){
     let newItem: Item = {

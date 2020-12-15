@@ -51,9 +51,9 @@ export class DataService {
     return this.http.post('http://localhost:3000/api/list/', newItem, {headers: headers}) 
     .pipe(map(res=> res.json()));
 
-    
   }
 
-  
+
+
 }
 
