@@ -34,6 +34,17 @@ router.post('/list', (req,res, next)=>{
         }
     })
 });
+//find function
+function FindList(req,res,next){
+    List.find({listName: req.parmas.listName} , (error, data)=> {
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.json(req)
+        }
+        });
+};
 
 //updating new data
 router.put('/list/:id', (req,res, next)=>{
@@ -70,4 +81,7 @@ router.delete('/list/:id', (req,res,next)=>{
             }
         });
 });
+
+
+
 module.exports= router;

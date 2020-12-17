@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { List } from '../list';
 import { DataService } from '../data.service';
 import { Item } from '../item';
+
+
 @Component({
   selector: 'app-shopping-item',
   templateUrl: './shopping-item.component.html',
@@ -14,8 +16,11 @@ export class ShoppingItemComponent implements OnInit {
   shoppingItem: Item[]=[];
   selectedList: any;
   toggleForm: boolean | undefined;
+  itemName!: String;
+  listName!: String;
   
   constructor(private dataService: DataService) { }
+
 //list functions
   getLists(){
     this.dataService.getShoppingList()
@@ -130,5 +135,4 @@ export class ShoppingItemComponent implements OnInit {
   ngOnInit(): void {
     this.getLists;
   }
-
 }
