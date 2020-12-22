@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="md-form">
+                <p>Pls give in your Listname to find:</p>
+                <input type="text" [(ngModel)]="data.searchText" class="form-control" id="search" mdbInput />
+                <button for="search" (click)="searchList(data.searchText)">Search</button>
+            </div>
+        </div>
+    </div>
+    <!--<div *ngFor="let list of shoppingList" class="">
+        <table class=" table2 ">
+            <thead>
+                <tr>
+                    <th scope="col">ListName</th>
+                    <th scope="col">ItemName</th>
+                    <th scope="col">itemQuantity</th>
+                </tr>
+            </thead>
+        </table>
+            <table class="table2">
+                <tbody>
+                    <tr>
+                        <td>{{list.listName}}</td>
+                        <td>{{list.itemName}}</td>
+                        <td>{{list.itemQuantity}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>-->
+    <table mdbTable class="z-depth-1">
+      <thead>
+        <tr>
+          <th
+            *ngFor="let list of shoppingList;"
+            scope="col"
+          >
+            {{list}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let list of shoppingList;">
+          <th scope="row">{{list.listName}}</th>
+          <td class="red-text">{{list.itemName}}</td>
+          <td>{{list.itemQuantity}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

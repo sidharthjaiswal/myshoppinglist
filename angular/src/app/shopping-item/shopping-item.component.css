@@ -1,5 +1,4 @@
-@import 'https://bootswatch.com/4/flatly/bootstrap.min.css';
-
+@import url('https://bootswatch.com/4/flatly/bootstrap.min.css');
 
 h1{
     text-align: center;
@@ -61,7 +60,8 @@ table{
 
 .table2{
     border: 1px solid black;
-    background-color: brown;
+    
+    background-color:	orangered;
     width: 50%;
     overflow: scroll;
     overflow-y:scroll;
@@ -76,5 +76,4 @@ table{
     float: left;
     
 }
-
 

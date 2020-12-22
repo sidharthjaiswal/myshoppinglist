@@ -1,0 +1,23 @@
+<!--<div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="listName">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let list"> {{list.listName}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="itemName">
+      <mat-header-cell *matHeaderCellDef> E-Mail </mat-header-cell>
+      <mat-cell *matCellDef="let list"> {{list.itemName}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="itemQuantity">
+      <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+      <mat-cell *matCellDef="let list"> {{list.itemQuantity}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>-->
+
+for data list
+<datalist id="listName">
+  <option *ngFor="let list of shoppingList" [value]="list.listName" >{{list.itemName}}</option>
+</datalist>

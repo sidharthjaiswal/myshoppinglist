@@ -1,0 +1,45 @@
+Shopping_project timeline:
+
+Date: 2.12.2020
+1. think about what kind of project it should be e.g MEAN Stack app
+2. create some sketches of your thoughts on this project.
+3. create project file e.g Shopping_project
+4. install all the necessary dependencies/files etc.
+
+Frontend: 
+
+install angular:
+npm install -g @angular/cli  
+
+creating a new angular project or in my case the frontend folder
+ng new angular
+
+installing bootstrap: 
+npm i bootstrap
+
+served the folder on localhost:4200 with "ng serve"
+
+created new component: shopping-item
+
+built a file with angular so I can run the front-/backend on the same port: localhost:3000
+
+Backend:
+
+installed mongodb:
+npm i mongodb
+
+installed bodyparser:
+npm i bodyparser --save
+
+installed express: 
+npm i express --save
+
+installed cors: 
+npm i cors --save
+
+
+
+different functions: 
+
+
+Mat table with dynamic data: 

@@ -3,7 +3,6 @@ import { Http, Response, Headers } from '@angular/http';
 import { map } from "rxjs/operators";
 import { List } from './list';
 import { Item } from './item';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +33,11 @@ export class DataService {
     .pipe(map(res=> res.json()));
   }
 
-
+ findShoppingList(Value : any)
+ {
+  return this.http.get('http://localhost:3000/api/searchlist/'+Value)
+  .pipe(map(res=> res.json()));
+ }
   updateShoppingList(newList: List)
   {
     let headers = new Headers();
@@ -51,6 +54,11 @@ export class DataService {
     return this.http.post('http://localhost:3000/api/list/', newItem, {headers: headers}) 
     .pipe(map(res=> res.json()));
 
+  }
+  searchShoppingList(listName: string)
+  {
+    return this.http.delete('http://localhost:3000/api/list/'+listName)
+    .pipe(map(res=> res.json()));
   }
 
 

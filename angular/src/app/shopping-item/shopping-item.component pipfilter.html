@@ -1,0 +1,26 @@
+<div class="content" role="main">
+  <div class="card">
+    <div class="form-group">
+      <label for="search-text">Search Text</label>
+      <input list="listName" type="text" class="form-control" id="listName" aria-describedby="search-text"
+        [(ngModel)]="listName" placeholder="Enter text to search" autofocus>
+      <datalist id="listName">
+        <option *ngFor="let list of shoppingList" [value]="list.listName">{{list.listName}}</option>
+      </datalist>
+    </div>
+    <ul class="list-group list-group-flush">
+      <!-- results of ngFor is passed to appFilter with argument searchText -->
+      <li class="list-group-item" *ngFor="let list of shoppingList">
+        <table>
+          <tbody>
+            <tr>
+              <td>{{list.listName}}</td>
+              <td>{{list.itemName}}</td>
+              <td>{{list.itemQuantity}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </div>
+</div>
