@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Add List</h2>
+<div mat-dialog-content class="contentBox">
+    <mat-form-field>
+        <label for="listname">ListName:</label>
+        <input type="text" [(ngModel)]="data.listName" matInput required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <label for="itemName">ItemName:</label>
+        <input matInput type="text" [(ngModel)]="data.itemName" matInput required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <label for="itemQuantity">ItemQuantity:</label>
+        <input matInput type="number" [(ngModel)]="data.itemQuantity" matInput required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <label for="listDate">ListDate: </label>
+        <input matInput  type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="today"
+            [(ngModel)]="data.listDate">
+    </mat-form-field>
+
+    <mat-dialog-actions>
+        <button class="mat-raised-button" [mat-dialog-close]="data" 
+            (click)="addList( { value: {listName: data.listName, itemName: data.itemName, itemQuantity: data.itemQuantity, listDate: data.listDate  } }); "  >Save</button>
+        <button class="mat-raised-button" (click)="closeDialog()">Cancel</button>
+    </mat-dialog-actions>
+
+</div>
