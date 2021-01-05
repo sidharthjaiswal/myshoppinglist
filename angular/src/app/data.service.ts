@@ -14,32 +14,32 @@ export class DataService {
 
   // list Functions
   getShoppingList() {
-    return this.http.get('http://localhost:3000/api/lists/')
+    return this.http.get('api/lists/')
       .pipe(map(res => res.json()));
   }
 
   addShoppingList(newList: List) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/api/list/', newList, { headers: headers })
+    return this.http.post('api/list/', newList, { headers: headers })
       .pipe(map(res => res.json()));
 
   }
 
 
   deleteShoppingList(id: string) {
-    return this.http.delete('http://localhost:3000/api/list/' + id)
+    return this.http.delete('api/list/' + id)
       .pipe(map(res => res.json()));
   }
 
   findShoppingList(Value: any) {
-    return this.http.get('http://localhost:3000/api/searchlist/' + Value)
+    return this.http.get('api/searchlist/' + Value)
       .pipe(map(res => res.json()));
   }
   updateShoppingList(newList: List) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.put('http://localhost:3000/api/list/' + newList._id, newList, { headers: headers })
+    return this.http.put('api/list/' + newList._id, newList, { headers: headers })
       .pipe(map(res => res.json()));
   }
 
@@ -47,12 +47,12 @@ export class DataService {
   addShoppingItem(newItem: Item) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/api/list/', newItem, { headers: headers })
+    return this.http.post('api/list/', newItem, { headers: headers })
       .pipe(map(res => res.json()));
 
   }
   searchShoppingList(listName: string) {
-    return this.http.delete('http://localhost:3000/api/list/' + listName)
+    return this.http.delete('api/list/' + listName)
       .pipe(map(res => res.json()));
   }
 

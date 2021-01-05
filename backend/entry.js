@@ -7,7 +7,7 @@ var app = express();
 const route = require('./route/routes');
 var path = require('path');
 //Connect to MOngoDB
-mongoose.connect('mongodb://localhost:27017/myshoppinglist');
+mongoose.connect('mongodb+srv://sidharth:Sidh221101@myshoppinglist.wetfe.mongodb.net/test',{});
 
 //on connection
 
@@ -22,7 +22,7 @@ mongoose.connection.on('error', (err)=>{
 });
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 80;
 
 //adding middleWare = cors
 app.use(cors());
