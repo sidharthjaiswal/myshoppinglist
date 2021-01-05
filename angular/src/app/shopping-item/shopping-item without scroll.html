@@ -1,0 +1,34 @@
+<body class="bg-info">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" style="font-weight: bolder;">My ShoppingList
+        <button class=" btn btn-success" (click)="openAddDialog()">Add List</button>
+        </a>
+    </nav>
+      <h2>List of shoppingLists</h2>
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput type="text" autocomplete="off" (keyUp)="applyFilter($event)" placeholder="Filter" #input>
+      </mat-form-field>
+      <div class="lists">
+      <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="listName">
+          <mat-header-cell *matHeaderCellDef> List Name </mat-header-cell>
+          <mat-cell *matCellDef="let list"> {{list.listName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="itemName">
+          <mat-header-cell *matHeaderCellDef> Item Name </mat-header-cell>
+          <mat-cell *matCellDef="let list"> {{list.itemName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="itemQuantity">
+          <mat-header-cell *matHeaderCellDef> Item Quantity </mat-header-cell>
+          <mat-cell *matCellDef="let list"> {{list.itemQuantity}} </mat-cell>
+        </ng-container>
+        <button mat-button class="btn btn-danger" (click)="deleteList(list._id)">Delete</button>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+    <p>A Project devloped by Sidharth Jaiswal</p>
+  </body>
+  
+  

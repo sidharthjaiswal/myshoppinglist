@@ -35,10 +35,6 @@ input {
         padding: 10px;
       }
 
-button{
-
- transform: translate(0px,35px);
-}
 
 table{
     table-layout: fixed;
@@ -77,3 +73,40 @@ table{
     
 }
 
+
+body{
+    margin: 0;
+}
+
+#table-wrapper {
+   position: auto;
+   display: flex;
+  }
+  #table-scroll {
+    height:700px;
+    width: 100%;
+    overflow:auto;  
+    margin-top:20px;
+  }
+  #table-wrapper table {
+    width:100%
+  
+  }
+  #table-wrapper table * {
+    background:yellow;
+    color:black;
+  }
+  #table-wrapper table thead th .text {
+    position:absolute;   
+    top:-20px;
+    z-index:2;
+    height:20px;
+    width:35%;
+    border:1px solid red;
+  }
+
+  .mat-header-row {
+    background: white;
+    position: sticky;
+    top: 0; 
+  }
