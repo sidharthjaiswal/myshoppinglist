@@ -11,13 +11,19 @@
         <input type="text" name="itemName" class="form-control" maxlength="20" value="" ngModel required>
         <label style="color: white;" for="itemQuantity">Quantity:</label>
         <input type="number" name="itemQuantity" class="form-control" min="1" max="999" value="" ngModel required>
-        <button type="submit" name="button" class="btn btn-success" [disabled]=frm.invalid>Add List</button> 
+        <button type="submit" name="button" class="btn btn-success" [disabled]=frm.invalid>Add List</button>
         <button class="btn btn-warning" (click)="getLists()">Show Shopping lists to edit or delete</button>
         <br>
         <br>
         <br>
         <form class="form bg-primary" #editform="ngForm" (ngSubmit)="editList(editform)" *ngIf="toggleForm">
           <h2 style="color: white;">Edit Items of List</h2>
+          <div class="form-group">
+            <label style="color: white;" for="">
+              ListName:
+            </label>
+            <input type="text" class="form-control" name="listName" value="" [ngModel]="selectedList.listName">
+          </div>
           <div class="form-group">
             <label style="color: white;" for="">
               ItemName:
@@ -40,7 +46,6 @@
         <table class="table table-primary" style="color: white;">
           <thead>
             <tr>
-
               <th scope="col">ListName</th>
               <th scope="col">ItemName</th>
               <th scope="col">itemQuantity</th>
@@ -69,57 +74,6 @@
       </form>
     </div>
 
-    <div class="sub">
-      <h2>List of shoppingLists</h2>
-      <mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="listName">
-          <mat-header-cell *matHeaderCellDef> List Name </mat-header-cell>
-          <mat-cell *matCellDef="let list"> {{list.listName}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="itemName">
-          <mat-header-cell *matHeaderCellDef> Item Name </mat-header-cell>
-          <mat-cell *matCellDef="let list"> {{list.itemName}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="itemQuantity">
-          <mat-header-cell *matHeaderCellDef> Item Quantity </mat-header-cell>
-          <mat-cell *matCellDef="let list"> {{list.itemQuantity}} </mat-cell>
-        </ng-container>
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
-    </div>
 
-    <div class="sub" style="transform: translate(10px,0px);">
-      <h2>Search ShoppingList:</h2>
-      <form class="bg-primary">
-        <div class="input-group mb-3">
-          <label style="color: white;" for="listName">ListName:</label>
-          <input type="text" list="listName" name="listName" #listName class="form-control" maxlength="20" ngModel
-            required>
-          <datalist id="listName">
-            <option *ngFor="let list of shoppingList" [value]="list.listName"></option>
-          </datalist>
-          <button mat-raised-button type="button" class="bg-secondary " style="color: white;"
-            (click)="searchList(listName.value)">Search ListName</button>
-        </div>
-        <br><br>
-        <mat-table [dataSource]="dataSource">
-          <ng-container matColumnDef="listName">
-            <mat-header-cell *matHeaderCellDef> List Name </mat-header-cell>
-            <mat-cell *matCellDef="let list"> {{list.listName}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="itemName">
-            <mat-header-cell *matHeaderCellDef> Item Name </mat-header-cell>
-            <mat-cell *matCellDef="let list"> {{list.itemName}} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="itemQuantity">
-            <mat-header-cell *matHeaderCellDef> Item Quantity </mat-header-cell>
-            <mat-cell *matCellDef="let list"> {{list.itemQuantity}} </mat-cell>
-          </ng-container>
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </mat-table>
-      </form>
-    </div>
   </div>
 </body>

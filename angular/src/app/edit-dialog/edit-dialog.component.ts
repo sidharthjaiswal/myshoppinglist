@@ -10,7 +10,8 @@ import { List } from '../list';
 })
 export class EditDialogComponent implements OnInit {
   shoppingList: List[] = [];
-  selectedList = this.data;
+  selectedList!: List;
+
 
   constructor(private dataService: DataService, public dialogRef: MatDialogRef<EditDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -18,13 +19,13 @@ export class EditDialogComponent implements OnInit {
     this.dataService.getShoppingList()
       .subscribe(lists => {
         this.shoppingList = lists;
-        console.log('data from dataservice: ' + this.shoppingList[0].listName + " "+ this.shoppingList[0].itemName + " "+ this.shoppingList[0].itemQuantity);
-        //location.reload();
+        location.reload();
       })
   };
-  editList(form: { value: { listName: String; itemName: String; itemQuantity: Number; listDate: Date; }; }) {
+
+  editList(form: { value: { _id: String, listName: String; itemName: String; itemQuantity: Number; listDate: Date; }; }) {
     let newList: List = {
-      _id: this.data.id,
+      _id: form.value._id,
       listName: form.value.listName,
       itemName: form.value.itemName,
       itemQuantity: form.value.itemQuantity,
@@ -32,11 +33,11 @@ export class EditDialogComponent implements OnInit {
     }
     this.dataService.updateShoppingList(newList)
       .subscribe(result => {
-        console.log(form.value.listName);
-        console.log('Orginal Item to be updated with old values: ' + result);
+        console.log(newList);
         this.getLists();
       });
   };
+
   closeDialog() {
     this.dialogRef.close();
   }

@@ -1,26 +1,21 @@
 <h3>Edit Items of List</h3>
-<div class="form-group">
-    <label for="">
-        ListName:
-    </label>
-    <input type="text" class="form-control" placeholder="{{data.listName}}">
-</div>
-<div class="form-group">
-    <label for="">
-        ItemName:
-    </label>
-    <input type="text" class="form-control" placeholder="{{data.itemName}}">
-</div>
-
-<div class="form-group">
-    <label for="">
-        ItemQuantity:
-    </label>
-    <input type="number" class="form-control" placeholder="{{data.itemQuantity}}">
-</div>
+<mat-form-field>
+    <label for="">ListName:</label>
+    <input type="text" [(ngModel)]="data.listName" matInput required>
+</mat-form-field>
+<br>
+<mat-form-field>
+    <label for="">ItemName:</label>
+    <input matInput type="text" [(ngModel)]="data.itemName" matInput required>
+</mat-form-field>
+<br>
+<mat-form-field>
+    <label for="">ItemQuantity:</label>
+    <input matInput type="number" [(ngModel)]="data.itemQuantity" matInput required>
+</mat-form-field>
 <mat-dialog-actions>
     <button type="submit" [mat-dialog-close]="data" class="btn btn-success"
-        (click)="editList( { value: {listName: data.listName, itemName: data.itemName, itemQuantity: data.itemQuantity, listDate: data.listDate } });">Save
+        (click)="editList( { value: { _id: data._id, listName: data.listName, itemName: data.itemName, itemQuantity: data.itemQuantity, listDate: data.listDate } });">Save
     </button>
     <button class="btn btn-danger" (click)="closeDialog()">Cancel</button>
 </mat-dialog-actions>

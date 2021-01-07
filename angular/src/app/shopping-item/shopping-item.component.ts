@@ -17,7 +17,7 @@ import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confi
   styleUrls: ['./shopping-item.component.css'],
   providers: [DataService]
 })
-export class ShoppingItemComponent  {
+export class ShoppingItemComponent {
 
   @Input() filterString = "";
   shoppingList: List[] = [];
@@ -45,6 +45,19 @@ export class ShoppingItemComponent  {
         console.log('data from dataservice: ' + this.shoppingList[0].itemName);
       })
   };
+  addList(form: { value: { listName: String, itemName: String; itemQuantity: Number; listDate: Date; }; }) {
+    let newList: List = {
+      listName: form.value.listName,
+      itemName: form.value.itemName,
+      itemQuantity: form.value.itemQuantity,
+      listDate: form.value.listDate
+    }
+    this.dataService.addShoppingList(newList)
+      .subscribe(() => {
+        this.getLists();
+      })
+  }
+
   deleteList(id: any) {
     this.dataService.deleteShoppingList(id)
       .subscribe(data => {
@@ -105,19 +118,6 @@ export class ShoppingItemComponent  {
         })
   }
 
-  editItem(form: { value: { itemName: String; itemQuantity: Number; } }) {
-    let newItem: Item = {
-      itemName: form.value.itemName,
-      itemQuantity: form.value.itemQuantity,
-    }
-    this.dataService.updateShoppingList(this.selectedList)
-      .subscribe(result => {
-        console.log('Orginal Item to be updated with old values: ' + result);
-        this.getLists();
-      });
-    this.toggleForm = !this.toggleForm;
-  }
-
   //Dialogs 
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddDialogComponent, {
@@ -132,30 +132,31 @@ export class ShoppingItemComponent  {
     });
   }
 
-  openEditDialog(form: List){
+  openEditDialog(form: List) {
     const dialogRef = this.dialog.open(EditDialogComponent, {
       width: '500px',
-      data: { id: form._id, listName: form.listName, itemName: form.itemName, itemQuantity: form.itemQuantity }
+      data: { _id: form._id, listName: form.listName, itemName: form.itemName, itemQuantity: form.itemQuantity}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      console.log( form._id);
       console.log(result.listName);
       this.getLists();
     });
   }
 
-  openDeleteConfirmDialog(id: any){
-    const dialogRef=this.dialog.open(DeleteConfirmationComponent); 
-    dialogRef.afterClosed().subscribe(confirmresult=>{  
-      console.log(confirmresult);  
-      if(confirmresult){     
+  openDeleteConfirmDialog(id: any) {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent);
+    dialogRef.afterClosed().subscribe(confirmresult => {
+      console.log(confirmresult);
+      if (confirmresult) {
         console.log("Delete confirm is approved by user.");         //if dialog result is yes, delete post  
-        this.deleteList(id);  
-      }  
-      else{                        //if dialog result is no, DO NOT delete post  
-        console.log("Delete confirm is cancelled by user.");  
-      }  
-    }) 
+        this.deleteList(id);
+      }
+      else {                        //if dialog result is no, DO NOT delete post  
+        console.log("Delete confirm is cancelled by user.");
+      }
+    })
   }
 
   //DataSources
