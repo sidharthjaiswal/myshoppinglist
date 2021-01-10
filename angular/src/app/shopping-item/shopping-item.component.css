@@ -81,6 +81,7 @@ body{
 #table-wrapper {
    position: auto;
    display: flex;
+   width: 100%;
   }
   #table-scroll {
     height:700px;
