@@ -1,16 +1,17 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { List } from '../list';
 import { DataService } from '../data.service';
 import { Item } from '../item';
 import { MatDialog } from '@angular/material/dialog';
 import { DataSource } from '@angular/cdk/table';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AddDialogComponent } from '../add-dialog/add-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
+import { ContactFormComponent } from '../contact-form/contact-form.component';
+
 @Component({
   selector: 'app-shopping-item',
   templateUrl: './shopping-item.component.html',
@@ -157,6 +158,14 @@ export class ShoppingItemComponent {
         console.log("Delete confirm is cancelled by user.");
       }
     })
+  }
+
+  openContactDialog()
+  {
+    const dialogRef = this.dialog.open(ContactFormComponent, {
+      height: '600px',
+      width: '500px'
+    });
   }
 
   //DataSources
