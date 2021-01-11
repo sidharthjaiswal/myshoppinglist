@@ -79,6 +79,7 @@ body {
     position: auto;
     display: flex;
     width: 100%;
+    background-color: white;
 }
 
 #table-scroll {

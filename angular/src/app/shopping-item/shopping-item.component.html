@@ -1,21 +1,23 @@
-<body>
+<body class="bg bg-primary">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand"><button (click)="openAddDialog()" class="btn btn-primary">Add Shopping List</button></a>
-            <a class="navbar-brand"><button (click)="openContactDialog()" class="btn btn-info">Contact me</button></a>
-        </div>
-    </nav>
+
     <header class="masthead">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="site-heading">
-                        <h1>Shopping List</h1>
-                        <br>
-                        <h2>A project created using MEAN Stack by Sidharth Jaiswal</h2>
+                <div class="col-lg-8 col-md-10 mx-auto" style="color: white;">
+                    <h1>Shopping List</h1>
+                    <h2 style="text-align: center; font-style: italic;">A project created using MEAN Stack by Sidharth Jaiswal</h2>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <button type="button" (click)="openAddDialog()" class="btn btn-success btn-xs">Add Shopping List</button>
+                            <button (click)="openContactDialog()" class="btn btn-info">Contact me</button>
+                            <!-- <button class="btn btn-warning">About Me</button>
+                            <button class="btn btn-danger">About application</button>-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,25 +45,15 @@
                         <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                         <mat-cell *matCellDef="let row">
                             <button class="btn btn-warning " (click)="openEditDialog(row)">
-              <mat-icon>create</mat-icon>
-            </button>
+                <mat-icon>create</mat-icon>
+              </button>
                             <button class="btn btn-danger" (click)="openDeleteConfirmDialog(row._id)">
-              <mat-icon>delete</mat-icon>
-            </button>
+                <mat-icon>delete</mat-icon>
+              </button>
                         </mat-cell>
                     </ng-container>
                 </mat-table>
             </div>
         </div>
     </div>
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <p class="copyright text-muted">Copyright &copy; My ShoppingList 2020</p>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>

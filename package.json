@@ -1,19 +1,19 @@
 {
-  "name": "package",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sidharthjaiswal/myshoppinglist.git"
-  },
-  "author": "Sidharth Jaiswal",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sidharthjaiswal/myshoppinglist/issues"
-  },
-  "homepage": "https://github.com/sidharthjaiswal/myshoppinglist#readme"
+    "name": "package",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sidharthjaiswal/myshoppinglist.git"
+    },
+    "author": "Sidharth Jaiswal",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sidharthjaiswal/myshoppinglist/issues"
+    },
+    "homepage": "https://github.com/sidharthjaiswal/myshoppinglist#readme"
 }
