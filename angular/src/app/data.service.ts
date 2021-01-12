@@ -3,6 +3,8 @@ import { Http, Response, Headers } from '@angular/http';
 import { map } from "rxjs/operators";
 import { List } from './list';
 import { Item } from './item';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,8 +12,12 @@ export class DataService {
 
   ListArray: List[] = [];
 
-  constructor(private http: Http) { }
-
+  constructor(private http: Http, private httpClient: HttpClient) { }
+  
+  getData(): Observable<any[]> {
+    return this.httpClient.get<any[]>('api/lists/');
+  }
+  
   // list Functions
   getShoppingList() {
     return this.http.get('api/lists/')

@@ -1,0 +1,20 @@
+body {
+    hyphens: auto;
+    text-align: justify;
+}
+
+.vertikal-flex {
+    width: 30%;
+    display: flex;
+    align-items: justify;
+    justify-content: justify;
+}
+
+.fa-3x {
+    color: black;
+}
+
+img {
+    display: flex;
+    float: right;
+}

@@ -21,7 +21,12 @@ import { DeleteConfirmationComponent } from './delete-confirmation/delete-confir
 import { AppRoutingModule } from './app-routing.module';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AboutMeComponent } from './about-me/about-me.component';
+import { SearchDialogComponent } from './search-dialog/search-dialog.component';
+import { DynamicTableModule } from 'material-dynamic-table';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AboutAppComponent } from './about-app/about-app.component'
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
     EditDialogComponent,
     DeleteConfirmationComponent,
     ContactFormComponent,
+    AboutMeComponent,
+    SearchDialogComponent,
+    AboutAppComponent,
  
   ],
   imports: [
@@ -50,9 +58,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpModule
-
-  ],
+    HttpModule,
+    DynamicTableModule,
+    FontAwesomeModule,
+    ],
   exports: [
     MatDialogModule,
     MatTableModule,
@@ -66,5 +75,5 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {}
 

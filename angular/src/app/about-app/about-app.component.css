@@ -1,0 +1,11 @@
+body {
+    hyphens: auto;
+    text-align: justify;
+}
+
+.vertikal-flex {
+    width: 30%;
+    display: flex;
+    align-items: justify;
+    justify-content: justify
+}

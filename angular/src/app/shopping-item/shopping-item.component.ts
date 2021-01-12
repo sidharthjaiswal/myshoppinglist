@@ -11,6 +11,10 @@ import { MatSort } from '@angular/material/sort';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
+import { Router } from '@angular/router';
+import { AboutMeComponent } from '../about-me/about-me.component';
+import { SearchDialogComponent } from '../search-dialog/search-dialog.component';
+import { AboutAppComponent } from '../about-app/about-app.component';
 
 @Component({
   selector: 'app-shopping-item',
@@ -37,7 +41,7 @@ export class ShoppingItemComponent {
 
 
   //constructor(private dataService: DataService) {}
-  constructor(public dataService: DataService, public dialog: MatDialog) { this.resultCount = this.dataService.getProductCount(); }
+  constructor(public dataService: DataService, public dialog: MatDialog, private router: Router) { this.resultCount = this.dataService.getProductCount(); }
   //list functions
   getLists() {
     this.dataService.getShoppingList()
@@ -95,16 +99,6 @@ export class ShoppingItemComponent {
     this.toggleForm = !this.toggleForm;
   }
 
-  searchList(search: String) {
-    console.log(search);
-    this.dataService.findShoppingList(search)
-      .subscribe(lists => {
-        this.shoppingList = lists;
-        console.log('data from dataservice: ' + this.shoppingList[0].itemName);
-      })
-  };
-
-
   // items functions
   addItem(form: { value: { itemName: String; itemQuantity: Number; } }) {
     let newItem: Item = {
@@ -160,6 +154,15 @@ export class ShoppingItemComponent {
     })
   }
 
+  openSearchDialog()
+  {
+    const dialogRef = this.dialog.open(SearchDialogComponent,
+      {
+        height: '600px',
+        width: '500px',
+      })
+  }
+  
   openContactDialog()
   {
     const dialogRef = this.dialog.open(ContactFormComponent, {
@@ -168,6 +171,22 @@ export class ShoppingItemComponent {
     });
   }
 
+openAboutMeDialog()
+{
+  const dialogRef= this.dialog.open(AboutMeComponent, {
+    height: '5000px',
+      width: '4000px'
+  });
+  
+}
+
+openAboutAppDialog()
+{
+  const dialogRef =  this.dialog.open(AboutAppComponent, {
+    height: '5000px',
+      width: '4000px'
+  })
+}
   //DataSources
   dataSource = new UserDataSource(this.dataService);
   displayedColumns: string[] = ['listName', 'itemName', 'itemQuantity', 'actions'];

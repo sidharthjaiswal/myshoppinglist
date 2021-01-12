@@ -7,16 +7,19 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto" style="color: white;">
                     <h1>Shopping List</h1>
-                    <h2 style="text-align: center; font-style: italic;">A project created using MEAN Stack by Sidharth Jaiswal</h2>
+                    <h2 style="text-align: center; font-style: italic;">A project created using MEAN Stack by Sidharth Jaiswal
+                    </h2>
                 </div>
                 <br>
                 <div class="container">
                     <div class="row">
                         <div class="col text-center">
-                            <button type="button" (click)="openAddDialog()" class="btn btn-success btn-xs">Add Shopping List</button>
+                            <button type="button" (click)="openAddDialog()" class="btn btn-success btn-xs">Add Shopping
+                                List</button>
+                            <!--  <button class="btn btn-secondary" (click)="openSearchDialog()">Search Shopping Lists</button>-->
                             <button (click)="openContactDialog()" class="btn btn-info">Contact me</button>
-                            <!-- <button class="btn btn-warning">About Me</button>
-                            <button class="btn btn-danger">About application</button>-->
+                            <button class="btn btn-warning" (click)="openAboutMeDialog()">About Me</button>
+                            <button class="btn btn-secondary" (click)="openAboutAppDialog()">About App</button>
                         </div>
                     </div>
                 </div>
@@ -45,11 +48,11 @@
                         <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
                         <mat-cell *matCellDef="let row">
                             <button class="btn btn-warning " (click)="openEditDialog(row)">
-                <mat-icon>create</mat-icon>
-              </button>
+                                <mat-icon>create</mat-icon>
+                            </button>
                             <button class="btn btn-danger" (click)="openDeleteConfirmDialog(row._id)">
-                <mat-icon>delete</mat-icon>
-              </button>
+                                <mat-icon>delete</mat-icon>
+                            </button>
                         </mat-cell>
                     </ng-container>
                 </mat-table>
