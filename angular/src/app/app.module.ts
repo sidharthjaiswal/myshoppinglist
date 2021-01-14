@@ -27,6 +27,7 @@ import { DynamicTableModule } from 'material-dynamic-table';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutAppComponent } from './about-app/about-app.component'
 import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { RouterModule } from '@angular/router';
     AboutMeComponent,
     SearchDialogComponent,
     AboutAppComponent,
+    RegisterComponent,
  
   ],
   imports: [

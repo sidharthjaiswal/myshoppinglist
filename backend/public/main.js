@@ -108,6 +108,38 @@ AboutAppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
 
 /***/ }),
 
+/***/ "1W4x":
+/*!************************************************!*\
+  !*** ./src/app/register/register.component.ts ***!
+  \************************************************/
+/*! exports provided: RegisterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+class RegisterComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+}
+RegisterComponent.ɵfac = function RegisterComponent_Factory(t) { return new (t || RegisterComponent)(); };
+RegisterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 0, vars: 0, template: function RegisterComponent_Template(rf, ctx) { }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZWdpc3Rlci5jb21wb25lbnQuY3NzIn0= */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RegisterComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'app-register',
+                templateUrl: './register.component.html',
+                styleUrls: ['./register.component.css']
+            }]
+    }], function () { return []; }, null); })();
+
+
+/***/ }),
+
 /***/ "1gsi":
 /*!****************************************************!*\
   !*** ./src/app/add-dialog/add-dialog.component.ts ***!
@@ -1270,6 +1302,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var material_dynamic_table__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! material-dynamic-table */ "IkmS");
 /* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ "6NWb");
 /* harmony import */ var _about_app_about_app_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./about-app/about-app.component */ "0TkP");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./register/register.component */ "1W4x");
+
 
 
 
@@ -1334,7 +1368,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _contact_form_contact_form_component__WEBPACK_IMPORTED_MODULE_21__["ContactFormComponent"],
         _about_me_about_me_component__WEBPACK_IMPORTED_MODULE_23__["AboutMeComponent"],
         _search_dialog_search_dialog_component__WEBPACK_IMPORTED_MODULE_24__["SearchDialogComponent"],
-        _about_app_about_app_component__WEBPACK_IMPORTED_MODULE_27__["AboutAppComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _about_app_about_app_component__WEBPACK_IMPORTED_MODULE_27__["AboutAppComponent"],
+        _register_register_component__WEBPACK_IMPORTED_MODULE_28__["RegisterComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
         _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
@@ -1369,6 +1404,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _about_me_about_me_component__WEBPACK_IMPORTED_MODULE_23__["AboutMeComponent"],
                     _search_dialog_search_dialog_component__WEBPACK_IMPORTED_MODULE_24__["SearchDialogComponent"],
                     _about_app_about_app_component__WEBPACK_IMPORTED_MODULE_27__["AboutAppComponent"],
+                    _register_register_component__WEBPACK_IMPORTED_MODULE_28__["RegisterComponent"],
                 ],
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
