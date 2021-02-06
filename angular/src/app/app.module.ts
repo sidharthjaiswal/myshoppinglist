@@ -20,7 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { SearchDialogComponent } from './search-dialog/search-dialog.component';
 import { DynamicTableModule } from 'material-dynamic-table';
@@ -28,6 +28,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutAppComponent } from './about-app/about-app.component'
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
+import { AuthInterceptor } from './auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,14 @@ import { RegisterComponent } from './register/register.component';
   entryComponents: [
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
+  
   bootstrap: [AppComponent]
 })
 
