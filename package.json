@@ -1,9 +1,9 @@
 {
     "name": "package",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "entry.js",
     "scripts": {
-        "start": "node index.js"
+        "start": "node entry.js"
     },
     "repository": {
         "type": "git",
